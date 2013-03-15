@@ -93,9 +93,8 @@ public class Modelo  implements java.io.Serializable {
 			}
 		}
 		int cantidad = 0;
-		cantidad = Rutinas.leeEntero("Cantidad de modelos que se añaden al concesionario: ");
 		
-		concesionario.addModelo(this, cantidad);
+		concesionario.addModelo(this);
 	}
 
 }

@@ -102,9 +102,8 @@ public class Concesionario  implements java.io.Serializable {
 		concesionarios.add(this);
 	}
 	
-	public void addModelo(Modelo modelo, int cantidad){
+	public void addModelo(Modelo modelo){
 		this._modelos.add(modelo);
-		this._cantidad.add(cantidad);
 	}
 	
 	public Modelo buscarModelo(int codigo){
