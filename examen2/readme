@@ -1,0 +1,43 @@
+Examen 2 Evaluacion
+
+Aplicación de pedidos de modelos de coches
+
+Crear una clase Modelo con(Se valora 1/2 punto)
+
+codigoModelo	Entero
+Descripcion	String
+PVP		float
+
+Sub Clase ModeloPromocionado(Se valora 1/2)
+
+Descuento	float : Descuento en % a aplicar sobre el PVP para obtener nuevo pvp neto
+
+Clases modelos con arraylist de modelo
+
+Clase Concesionario
+
+CodigoConcesionario (01 ... 52) Validar de 1 a 52
+
+Nombre String
+
+Arraylist de Modelos
+
+Arraylist de cantidad (Se corresponde eleemento a elemento con el Arraylist de modelos)
+
+Clase Concesionario con arraylist de Concesionario
+
+Procesos:
+
+Salvar y restaurar datos (se valora 1/2 punto)
+
+Alta de modelos (se valora 1/2 punto)
+
+Alta concesión (Se valora 1/2)
+
+Nuevo pedido: Pedir Concesión(Mostrar nombre), Modelo(Mostrar descripcion, pvp y dto), y cantidad (Se valora 1 punto) Por swing (Valor +1: Modelo con ComboBox)
+
+Ventas por concesión: CodigoConcesion, Nombre, Total Ventas modelos no promocionados, Total ventas modelos promocionados (Se valora 3 puntos)
+
+Ventas por modelo: CodigoModelo, Descripcion, Total unidades vendidas (Se valora 3 puntos)
+
+Total puntos: 10,5. Aprobado: 5 puntos.
