@@ -3,7 +3,7 @@ package examen2;
 public class ModeloPromocionado extends Modelo {
 
 	// Atributos
-	private float descuento;
+	private float _descuento;
 	
 	// Constructor vacío
 	public ModeloPromocionado(){
@@ -12,11 +12,11 @@ public class ModeloPromocionado extends Modelo {
 
 	// Getters y setters
 	
-	public float getDescuento() {
-		return descuento;
+	public float get_descuento() {
+		return _descuento;
 	}
 
-	public void setDescuento(float descuento) {
-		this.descuento = descuento;
+	public void set_descuento(float _descuento) {
+		this._descuento = _descuento;
 	}	
 }
