@@ -1,5 +1,7 @@
 package examen2;
 
+import rutinas.Rutinas;
+
 public class Modelo {
 	
 	// Atributos
@@ -38,5 +40,31 @@ public class Modelo {
 		this._pvp = _pvp;
 	}
 	
+	// Pide los datos al usuario
+	public void datos(Modelos modelos){
+		int codigoModelo = -1;
+		String descripcion = "";
+		float pvp = 0;
+		
+		boolean error = true;
+		
+		while(error){
+			error = false;
+			codigoModelo = Rutinas.leeEntero("Introduce el codigo del modelo: ");
+			if(modelos.existeModelo(codigoModelo)){
+				error = true;
+				System.out.println("El codigo introducido ya existe");
+			}
+		}
+		descripcion = Rutinas.leeString("Introduce la descripción del modelo: ");
+		pvp = Rutinas.leeFloat("Introduce el precio del modelo: ");
+		
+		this.set_codigoModelo(codigoModelo);
+		this.set_descripcion(descripcion);
+		this.set_pvp(pvp);
+		
+		modelos.add(this);
+	}
+
 	
 }

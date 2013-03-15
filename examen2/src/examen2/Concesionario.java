@@ -2,6 +2,8 @@ package examen2;
 
 import java.util.ArrayList;
 
+import rutinas.Rutinas;
+
 public class Concesionario {
 
 	// Atributos
@@ -43,5 +45,29 @@ public class Concesionario {
 	}
 //	public void set_cantidad(ArrayList _cantidad) {
 //		this._cantidad = _cantidad;
-//	}	
+//	}
+	
+	// Pide los datos al usuario
+	public void datos(Concesionarios concesionarios){
+		int codigoConcesionario = -1;
+		
+		boolean error = true;
+		
+		while(error){
+			error = false;
+			codigoConcesionario = Rutinas.leeEntero("Introduce el codigo del concesionario: ");
+			if(concesionarios.existeConcesionario(codigoConcesionario)){
+				error = true;
+				System.out.println("El codigo introducido ya existe");
+			}
+		}
+
+		this.set_codigoConcesionario(codigoConcesionario);
+		
+		concesionarios.add(this);
+	}
+	
+	public void addModelo(Modelo modelo){
+		
+	}
 }
