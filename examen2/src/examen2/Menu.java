@@ -219,7 +219,7 @@ public class Menu {
 			modelo = concesionario.buscarModelo(codMod);
 			int iCantidad = concesionario.get_modelos().indexOf(modelo);
 			int cantidadOriginal = 0;
-			if(!(concesionario.get_cantidad().size() < 1)){
+			if(!(concesionario.get_cantidad().size() < modelos.get_modelos().size())){
 				cantidadOriginal = (int) concesionario.get_cantidad().get(iCantidad);	
 			}
 			concesionario.get_cantidad().add(iCantidad, cantidadOriginal + cantidad);
