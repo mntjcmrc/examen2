@@ -203,7 +203,12 @@ public class Menu {
 			concesionario = concesionarios.buscar(codConc);
 			System.out.println("Datos del concesionario");
 			System.out.println(concesionario.toString());
-			
+			int codMod = Rutinas.leeEntero("Código del modelo a vender: ");
+			int cantidad = Rutinas.leeEntero("Cantidad que se vende: ");
+			modelo = concesionario.buscarModelo(codMod);
+			int iCantidad =  concesionario.get_modelos().indexOf(modelo);
+			concesionario.get_cantidad().add(iCantidad, cantidad);
+			System.out.println("Coste total:" + cantidad * modelo.get_pvp());
 			break;
 		}
 		return atras;
