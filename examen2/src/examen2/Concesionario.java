@@ -31,7 +31,7 @@ public class Concesionario {
 	}
 	public void set_codigoConcesionario(int _codigoConcesionario) {
 		boolean error = true;
-		while(true){
+		while(error){
 			error = false;
 			if(_codigoConcesionario < 1 || _codigoConcesionario > 52){
 				error = true;
@@ -89,6 +89,10 @@ public class Concesionario {
 	}
 	
 	public void addModelo(Modelo modelo){
+		
+	}
+	public void datosPedido(Modelos modelos) {
+		
 		
 	}
 }
