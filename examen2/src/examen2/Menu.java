@@ -11,8 +11,8 @@ public class Menu {
 		System.out.println("4 - Cargar");
 		System.out.println("0 - Salir");
 	}
-	
-	private static void opcionesEstandar(){
+
+	private static void opcionesEstandar() {
 		System.out.println("1 - Modelo");
 		System.out.println("2 - Concesionario");
 		System.out.println("3 - Pedido");
@@ -23,6 +23,7 @@ public class Menu {
 		System.out.println("2 - Modelos");
 		System.out.println("3 - Concesionario");
 		System.out.println("4 - Concesionarios");
+		System.out.println("5 - Ventas de todos los concesionarios");
 		System.out.println("0 - Atrás");
 	}
 
@@ -38,21 +39,21 @@ public class Menu {
 		// Objetos con los ArrayList
 		Modelos modelos = new Modelos();
 		Concesionarios concesionarios = new Concesionarios();
-		
+
 		// Se cargan los ArrayList
-		//modelos.cargar();
-		//concesionarios.cargar();
-		
-		// Controlarán si hay pacientes 
+		modelos.cargar();
+		concesionarios.cargar();
+
+		// Controlarán si hay pacientes
 		boolean modelo = false;
 		boolean concesionario = false;
 
 		while (run) {
 			mostrarMenuP();
-			if(!modelo){
+			if (!modelo) {
 				modelo = modelos.hayModelos();
 			}
-			if(!concesionario){
+			if (!concesionario) {
 				concesionario = concesionarios.hayConcesionarios();
 			}
 			opcion = Rutinas.leeString("Elige una opción: ");
@@ -78,19 +79,20 @@ public class Menu {
 
 			// Así forzamos a que vuelva a empezar el loop y se cierre el
 			// programa o vuelva a empezar
-			
+
 			if (!run || menu.equals("p")) {
 
 			} else {
 				boolean atras = false;
 				switch (menu) {
 				case "ver":
-					atras = menuVer(modelo, concesionario, modelos, concesionarios);
+					atras = menuVer(modelo, concesionario, modelos,
+							concesionarios);
 					break;
 				case "crear":
 					menuCrear(modelos, concesionarios);
 				}
-				if(atras){
+				if (atras) {
 					menu = "p";
 				}
 			}
@@ -98,26 +100,27 @@ public class Menu {
 		System.out.println("Fin del programa");
 	}
 
-	private static boolean menuVer(boolean mode, boolean conce, Modelos modelos, Concesionarios concesionarios) {
+	private static boolean menuVer(boolean mode, boolean conce,
+			Modelos modelos, Concesionarios concesionarios) {
 		String opcion = "";
 		boolean atras = false;
-		
+
 		int codMode = -1;
 		int codConc = -1;
-		
+
 		opcionesVer();
 		opcion = Rutinas.leeString("Elige una opción: ");
-		
-		switch(opcion){
+
+		switch (opcion) {
 		// Modelo
 		case "1":
-			if(!mode){
+			if (!mode) {
 				System.out.println("No hay modelos\n");
 			} else {
 				codMode = Rutinas.leeEntero("Introduce el código del modelo: ");
 				Modelo modelo = modelos.buscar(codMode);
-				if(modelo.get_codigoModelo() == -1){
-					
+				if (modelo.get_codigoModelo() == -1) {
+
 				} else {
 					System.out.println(modelo.toString());
 				}
@@ -125,7 +128,7 @@ public class Menu {
 			break;
 		// Modelos
 		case "2":
-			if(!mode){
+			if (!mode) {
 				System.out.println("No hay modelos\n");
 			} else {
 				System.out.println(modelos.devolverDatos());
@@ -133,13 +136,14 @@ public class Menu {
 			break;
 		// Concesionario
 		case "3":
-			if(!conce){
+			if (!conce) {
 				System.out.println("No hay médicos\n");
 			} else {
-				codConc = Rutinas.leeEntero("Introduce el código del concesionario: ");
+				codConc = Rutinas
+						.leeEntero("Introduce el código del concesionario: ");
 				Concesionario concesionario = concesionarios.buscar(codConc);
-				if(concesionario.get_codigoConcesionario() == -1){
-					
+				if (concesionario.get_codigoConcesionario() == -1) {
+
 				} else {
 					System.out.println(concesionario.toString());
 				}
@@ -147,19 +151,22 @@ public class Menu {
 			break;
 		// Concesionarios
 		case "4":
-			if(!conce){
+			if (!conce) {
 				System.out.println("No hay concesionarios\n");
 			} else {
 				System.out.println(concesionarios.devolverDatos());
 			}
 			break;
+		// Ventas por concesionario
+		case "5":
+			System.out.println(concesionarios.ventasTotales());
 		case "0":
 			atras = true;
 			break;
 		}
 		return atras;
 	}
-	
+
 	private static boolean menuCrear(Modelos modelos, Concesionarios concesionarios){
 		String opcion = "";
 		boolean atras = false;
@@ -206,8 +213,12 @@ public class Menu {
 			int codMod = Rutinas.leeEntero("Código del modelo a vender: ");
 			int cantidad = Rutinas.leeEntero("Cantidad que se vende: ");
 			modelo = concesionario.buscarModelo(codMod);
-			int iCantidad =  concesionario.get_modelos().indexOf(modelo);
-			concesionario.get_cantidad().add(iCantidad, cantidad);
+			int iCantidad = concesionario.get_modelos().indexOf(modelo);
+			int cantidadOriginal = 0;
+			if(!(concesionario.get_cantidad().size() < 1)){
+				cantidadOriginal = (int) concesionario.get_cantidad().get(iCantidad);	
+			}
+			concesionario.get_cantidad().add(iCantidad, cantidadOriginal + cantidad);
 			System.out.println("Coste total:" + cantidad * modelo.get_pvp());
 			break;
 		}

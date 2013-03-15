@@ -92,7 +92,7 @@ public class Modelo  implements java.io.Serializable {
 						.println("Ese código no corresponde a ningún concesionario");
 			}
 		}
-		int cantidad = 0;
+		
 		
 		concesionario.addModelo(this);
 	}
