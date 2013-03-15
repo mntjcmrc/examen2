@@ -40,8 +40,8 @@ public class Menu {
 		Concesionarios concesionarios = new Concesionarios();
 		
 		// Se cargan los ArrayList
-		modelos.cargar();
-		concesionarios.cargar();
+		//modelos.cargar();
+		//concesionarios.cargar();
 		
 		// Controlarán si hay pacientes 
 		boolean modelo = false;
@@ -182,10 +182,10 @@ public class Menu {
 				respuesta = Rutinas.leeString("¿Modelo promocionado o no? (y/n)");
 				if(respuesta.startsWith("y")){
 					modelo = new ModeloPromocionado();
-					modelo.datos(modelos);
+					modelo.datos(modelos, concesionarios);
 				} else if(respuesta.startsWith("n")){
 					modelo = new Modelo();
-					modelo.datos(modelos);
+					modelo.datos(modelos, concesionarios);
 				} else {
 					error = true;
 					System.out.println("Respuesta incorrecta, vuelve a responder");
@@ -203,12 +203,9 @@ public class Menu {
 			concesionario = concesionarios.buscar(codConc);
 			System.out.println("Datos del concesionario");
 			System.out.println(concesionario.toString());
-			concesionario.datosPedido(modelos);
+			
 			break;
 		}
-		
-		
-		
 		return atras;
 	}
 }
