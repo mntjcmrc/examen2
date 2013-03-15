@@ -63,5 +63,62 @@ public class Concesionarios {
 			System.out.println("El fichero no existe");
 		}
 	}
+	// Comprueba si el concesionario del código dado existe
+		public boolean existeConcesionario(int codigo) {
+			boolean existe = false;
+			
+			ArrayList<Concesionario> concesionarios = get_concesionarios();
+			int fin = concesionarios.size();
+			for(int i = 0; i < fin; i++){
+				if(concesionarios.get(i).get_codigoConcesionario() == codigo){
+					existe = true;
+				}
+			}
+			
+			return existe;
+		}
+		
+		// Añade el concesionario dado al ArrayList
+		public void add(Concesionario concesionario){
+			this._concesionarios.add(concesionario);
+		}
+		
+		// Devuelve una string con los datos de todos los concesionarios
+		public String devolverDatos(){
+		String datos = "";
+		ArrayList<Concesionario> concesionarios = get_concesionarios();
+		
+		for(int i = 0; i < concesionarios.size(); i++){
+			datos += concesionarios.get(i).toString();
+		}
+		
+		return datos;
+	}
+
+	// Devuelve el concesionario
+	public Concesionario buscar(int codigo){
+		Concesionario concesionario = new Concesionario();
+		ArrayList<Concesionario> concesionarios = this._concesionarios;
+		
+		if(existeConcesionario(codigo)){
+			for(int i = 0; i < concesionarios.size(); i++){
+				if(concesionarios.get(i).get_codigoConcesionario() == codigo){
+					concesionario = concesionarios.get(i);
+				}
+			}
+			return concesionario;
+		} else {
+			System.out.println("No existe un concesionario con ese código");
+		}
+		return concesionario;
+	}
 	
+	// Comprueba si el ArrayList tiene concesionarios
+	public boolean hayConcesionarios(){
+		boolean hay = false;
+		if(this._concesionarios.size() > 0){
+			hay = true;
+		}
+		return hay;
+	}
 }
