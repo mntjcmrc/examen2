@@ -47,6 +47,27 @@ public class Concesionario {
 //		this._cantidad = _cantidad;
 //	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Codigo concesionario: " + get_codigoConcesionario() + "\n";
+	}
+	
+	// Devuelve una string con los datos de un concesionario
+		public String devolverDatos(){
+		String datos = "";
+		ArrayList<Modelos> modelos = get_modelos();
+		ArrayList cantidad = get_cantidad();
+		
+		for(int i = 0; i < modelos.size(); i++){
+			datos += modelos.get(i).toString();
+			datos += cantidad.get(i);
+		}
+		
+		return datos;
+	}
+			
 	// Pide los datos al usuario
 	public void datos(Concesionarios concesionarios){
 		int codigoConcesionario = -1;

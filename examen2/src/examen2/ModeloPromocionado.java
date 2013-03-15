@@ -18,5 +18,11 @@ public class ModeloPromocionado extends Modelo {
 
 	public void set_descuento(float _descuento) {
 		this._descuento = _descuento;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Descuento: " + get_descuento() + "\n" ;
+	}
+	
 }

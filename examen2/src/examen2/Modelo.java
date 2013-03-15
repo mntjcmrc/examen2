@@ -40,6 +40,14 @@ public class Modelo {
 		this._pvp = _pvp;
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Codigo modelo: " + get_codigoModelo() + "\nDescripcion: "
+				+ get_descripcion() + "\nPVP: " + get_pvp() + "\n";
+	}
+
 	// Pide los datos al usuario
 	public void datos(Modelos modelos){
 		int codigoModelo = -1;
