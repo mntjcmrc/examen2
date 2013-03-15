@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import rutinas.Rutinas;
+
 public class Concesionarios {
 
 	// Atributos
@@ -120,5 +122,23 @@ public class Concesionarios {
 			hay = true;
 		}
 		return hay;
+	}
+	
+	public void pedido(){
+		ArrayList<Concesionario> concesionarios = this._concesionarios;
+		Concesionario concesionario = new Concesionario();
+		Modelo modelo = new Modelo();
+		
+		int codConc = -1;
+		int codMod = -1;
+		
+		codConc = Rutinas.leeEntero("Código del concesionario en el que se hará el pedido: ");
+		concesionario = this.buscar(codConc);
+		System.out.println(concesionario.toString());
+		
+		System.out.println(concesionario.mostrarModelos());
+		codMod = Rutinas.leeEntero("Código del modelo a vender: ");
+		modelo = concesionario.buscarModelo(codMod);
+		
 	}
 }

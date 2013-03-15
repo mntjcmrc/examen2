@@ -59,17 +59,27 @@ public class Concesionario  implements java.io.Serializable {
 	}
 	
 	// Devuelve una string con los datos de un concesionario
-		public String devolverDatos(){
+	public String devolverDatos(){
 		String datos = "";
 		ArrayList<Modelo> modelos = get_modelos();
 		ArrayList cantidad = get_cantidad();
-		
+	
 		for(int i = 0; i < modelos.size(); i++){
 			datos += modelos.get(i).toString();
 			datos += cantidad.get(i);
 		}
 		
 		return datos;
+	}
+	
+	public String mostrarModelos(){
+		String sModelos = "";
+		
+		for(int i = 0; i < this._modelos.size(); i++){
+			sModelos += this._modelos.get(i).toString();
+		}
+		
+		return sModelos;
 	}
 			
 	// Pide los datos al usuario
@@ -97,8 +107,23 @@ public class Concesionario  implements java.io.Serializable {
 		this._cantidad.add(cantidad);
 	}
 	
-	public void datosPedido() {
+	public Modelo buscarModelo(int codigo){
+		Modelo modelo = new Modelo();
+		
+		for(int i = 0; i < this._modelos.size(); i ++){
+			if(this._modelos.get(i).get_codigoModelo() == codigo){
+				modelo = this._modelos.get(i);
+			}
+		}
+		
+		return modelo;
+	}
+	
+	public String ventas(){
+		String ventas = "";
 		
 		
+		
+		return ventas;
 	}
 }
