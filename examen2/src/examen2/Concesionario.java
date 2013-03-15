@@ -124,7 +124,7 @@ public class Concesionario  implements java.io.Serializable {
 		
 		for(int i = 0; i < this._modelos.size(); i++){
 			ventas += this._modelos.get(i).toString() + "\n";
-			ventas += "Vendidos: " + this._cantidad.get(i);
+			ventas += "Vendidos: " + this._cantidad.get(i) + "\n";
 		}
 		
 		return ventas;

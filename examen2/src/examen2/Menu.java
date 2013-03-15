@@ -1,3 +1,5 @@
+// Concesionario con código 1 y modelo con código 1 ya creados y vendido 46 veces
+
 package examen2;
 
 import rutinas.Rutinas;
@@ -67,10 +69,12 @@ public class Menu {
 			case "3":
 				modelos.guardar();
 				concesionarios.guardar();
+				menu = "p";
 				break;
 			case "4":
 				modelos.cargar();
 				concesionarios.cargar();
+				menu = "p";
 				break;
 			case "0":
 				run = false;
