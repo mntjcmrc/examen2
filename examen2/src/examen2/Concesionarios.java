@@ -141,4 +141,15 @@ public class Concesionarios {
 		modelo = concesionario.buscarModelo(codMod);
 		
 	}
+	
+	// Ventas totales de todos los concesionarios
+	public String ventasTotales(){
+		String ventas = "";
+		
+		for(int i = 0; i < this._concesionarios.size(); i++){
+			ventas += this._concesionarios.get(i).ventas();
+		}
+		
+		return ventas;
+	}
 }

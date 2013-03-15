@@ -119,10 +119,14 @@ public class Concesionario  implements java.io.Serializable {
 		return modelo;
 	}
 	
+	// Ventas de un concesionario
 	public String ventas(){
 		String ventas = "";
 		
-		
+		for(int i = 0; i < this._modelos.size(); i++){
+			ventas += this._modelos.get(i).toString() + "\n";
+			ventas += "Vendidos: " + this._cantidad.get(i);
+		}
 		
 		return ventas;
 	}
