@@ -8,7 +8,7 @@ public class Concesionario {
 
 	// Atributos
 	private int _codigoConcesionario; // de 01 a 52
-	private ArrayList<Modelos> _modelos = new ArrayList<Modelos>();
+	private ArrayList<Modelo> _modelos = new ArrayList<Modelo>();
 	@SuppressWarnings("rawtypes")
 	private ArrayList _cantidad = new ArrayList();
 
@@ -22,7 +22,7 @@ public class Concesionario {
 	public int get_codigoConcesionario() {
 		return _codigoConcesionario;
 	}
-	public ArrayList<Modelos> get_modelos() {
+	public ArrayList<Modelo> get_modelos() {
 		return _modelos;
 	}
 	@SuppressWarnings("rawtypes")
@@ -40,7 +40,7 @@ public class Concesionario {
 			}
 		}
 	}
-	public void set_modelos(ArrayList<Modelos> _modelos) {
+	public void set_modelos(ArrayList<Modelo> _modelos) {
 		this._modelos = _modelos;
 	}
 //	public void set_cantidad(ArrayList _cantidad) {
@@ -57,7 +57,7 @@ public class Concesionario {
 	// Devuelve una string con los datos de un concesionario
 		public String devolverDatos(){
 		String datos = "";
-		ArrayList<Modelos> modelos = get_modelos();
+		ArrayList<Modelo> modelos = get_modelos();
 		ArrayList cantidad = get_cantidad();
 		
 		for(int i = 0; i < modelos.size(); i++){
@@ -88,10 +88,12 @@ public class Concesionario {
 		concesionarios.add(this);
 	}
 	
-	public void addModelo(Modelo modelo){
-		
+	public void addModelo(Modelo modelo, int cantidad){
+		this._modelos.add(modelo);
+		this._cantidad.add(cantidad);
 	}
-	public void datosPedido(Modelos modelos) {
+	
+	public void datosPedido() {
 		
 		
 	}

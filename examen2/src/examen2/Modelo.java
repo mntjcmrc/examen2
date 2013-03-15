@@ -88,7 +88,10 @@ public class Modelo {
 						.println("Ese código no corresponde a ningún concesionario");
 			}
 		}
-		concesionario.addModelo(this);
+		int cantidad = 0;
+		cantidad = Rutinas.leeEntero("Cantidad de modelos que se añaden al concesionario: ");
+		
+		concesionario.addModelo(this, cantidad);
 	}
 
 }
