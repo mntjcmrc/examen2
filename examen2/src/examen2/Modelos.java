@@ -63,4 +63,63 @@ public class Modelos {
 			System.out.println("El fichero no existe");
 		}
 	}
+	
+	// Comprueba si el modelo del código dado existe
+	public boolean existeModelo(int codigo) {
+		boolean existe = false;
+		
+		ArrayList<Modelo> modelos = get_modelos();
+		int fin = modelos.size();
+		for(int i = 0; i < fin; i++){
+			if(modelos.get(i).get_codigoModelo() == codigo){
+				existe = true;
+			}
+		}
+		
+		return existe;
+	}
+	
+	// Añade el modelo dado al ArrayList
+	public void add(Modelo modelo){
+		this._modelos.add(modelo);
+	}
+	
+	// Devuelve una string con los datos de todos los modelos
+	public String devolverDatos(){
+		String datos = "";
+		ArrayList<Modelo> modelos = get_modelos();
+		
+		for(int i = 0; i < modelos.size(); i++){
+			datos += modelos.get(i).toString();
+		}
+		
+		return datos;
+	}
+
+	// Devuelve el modelo
+	public Modelo buscar(int codigo){
+		Modelo modelo = new Modelo();
+		ArrayList<Modelo> modelos = this._modelos;
+		
+		if(existeModelo(codigo)){
+			for(int i = 0; i < modelos.size(); i++){
+				if(modelos.get(i).get_codigoModelo() == codigo){
+					modelo = modelos.get(i);
+				}
+			}
+			return modelo;
+		} else {
+			System.out.println("No existe un modelo con ese código");
+		}
+		return modelo;
+	}
+	
+	// Comprueba si el ArrayList tiene pacientes
+	public boolean hayModelos(){
+		boolean hay = false;
+		if(this._modelos.size() > 0){
+			hay = true;
+		}
+		return hay;
+	}
 }
