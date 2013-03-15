@@ -60,7 +60,7 @@ public class Modelos {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("El fichero no existe");
+			System.out.println("El fichero de modelos no existe");
 		}
 	}
 	

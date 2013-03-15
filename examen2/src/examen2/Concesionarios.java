@@ -60,7 +60,7 @@ public class Concesionarios {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("El fichero no existe");
+			System.out.println("El fichero de concesionarios no existe");
 		}
 	}
 	// Comprueba si el concesionario del código dado existe
