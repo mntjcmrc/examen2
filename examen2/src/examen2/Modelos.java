@@ -122,4 +122,18 @@ public class Modelos {
 		}
 		return hay;
 	}
+	
+	public String ventas(Concesionarios concesionarios){
+		String ventas = "";
+		Concesionario concesionario = new Concesionario();
+		
+		for(int i = 0; i < concesionarios.get_concesionarios().size(); i++){
+			concesionario = concesionarios.get_concesionarios().get(i);
+			for(int j = 0; j < this._modelos.size(); j++){
+				
+			}
+		}
+		
+		return ventas;
+	}
 }
