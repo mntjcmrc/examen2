@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 import rutinas.Rutinas;
 
-public class Concesionario {
+public class Concesionario  implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1836006377415745383L;
 	// Atributos
 	private int _codigoConcesionario; // de 01 a 52
 	private ArrayList<Modelo> _modelos = new ArrayList<Modelo>();

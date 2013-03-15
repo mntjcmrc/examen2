@@ -2,8 +2,12 @@ package examen2;
 
 import rutinas.Rutinas;
 
-public class ModeloPromocionado extends Modelo {
+public class ModeloPromocionado extends Modelo  implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4882006570674107792L;
 	// Atributos
 	private float _descuento;
 	

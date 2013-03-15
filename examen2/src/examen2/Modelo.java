@@ -2,8 +2,12 @@ package examen2;
 
 import rutinas.Rutinas;
 
-public class Modelo {
+public class Modelo  implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8670963995631518254L;
 	// Atributos
 	private int _codigoModelo;
 	private String _descripcion;
