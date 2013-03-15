@@ -114,7 +114,7 @@ public class Modelos {
 		return modelo;
 	}
 	
-	// Comprueba si el ArrayList tiene pacientes
+	// Comprueba si el ArrayList tiene modelos
 	public boolean hayModelos(){
 		boolean hay = false;
 		if(this._modelos.size() > 0){
