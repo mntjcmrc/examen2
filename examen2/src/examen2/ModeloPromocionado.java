@@ -1,5 +1,7 @@
 package examen2;
 
+import rutinas.Rutinas;
+
 public class ModeloPromocionado extends Modelo {
 
 	// Atributos
@@ -18,6 +20,35 @@ public class ModeloPromocionado extends Modelo {
 
 	public void set_descuento(float _descuento) {
 		this._descuento = _descuento;
+	}
+	
+	// Pide los datos al usuario
+	public void datos(Modelos modelos){
+		int codigoModelo = -1;
+		String descripcion = "";
+		float pvp = 0;
+		float descuento = 0;
+		
+		boolean error = true;
+		
+		while(error){
+			error = false;
+			codigoModelo = Rutinas.leeEntero("Introduce el codigo del modelo: ");
+			if(modelos.existeModelo(codigoModelo)){
+				error = true;
+				System.out.println("El codigo introducido ya existe");
+			}
+		}
+		descripcion = Rutinas.leeString("Introduce la descripción del modelo: ");
+		pvp = Rutinas.leeFloat("Introduce el precio del modelo: ");
+		descuento = Rutinas.leeFloat("introduce el descuento: ");
+		
+		this.set_codigoModelo(codigoModelo);
+		this.set_descripcion(descripcion);
+		this.set_pvp(pvp);
+		this.set_descuento(descuento);
+	
+		modelos.add(this);
 	}
 
 	@Override

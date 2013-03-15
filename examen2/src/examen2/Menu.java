@@ -167,14 +167,30 @@ public class Menu {
 		Modelo modelo = null;
 		Concesionario concesionario = null;
 		
+		int codConc = -1;
+		
 		opcionesEstandar();
 		opcion = Rutinas.leeString("Elige una opción: ");
 		
 		switch(opcion){
 		//Modelo
 		case "1":
-			modelo = new Modelo();
-			modelo.datos(modelos);
+			boolean error = true;
+			String respuesta = "";
+			while(error){
+				error = false;
+				respuesta = Rutinas.leeString("¿Modelo promocionado o no? (y/n)");
+				if(respuesta.startsWith("y")){
+					modelo = new ModeloPromocionado();
+					modelo.datos(modelos);
+				} else if(respuesta.startsWith("n")){
+					modelo = new Modelo();
+					modelo.datos(modelos);
+				} else {
+					error = true;
+					System.out.println("Respuesta incorrecta, vuelve a responder");
+				}
+			}
 			break;
 		// Concesionario
 		case "2":
@@ -183,7 +199,11 @@ public class Menu {
 			break;
 		// Pedido
 		case "3":
-			
+			codConc = Rutinas.leeEntero("Código del concesionario que hace el pedido: ");
+			concesionario = concesionarios.buscar(codConc);
+			System.out.println("Datos del concesionario");
+			System.out.println(concesionario.toString());
+			concesionario.datosPedido(modelos);
 			break;
 		}
 		
