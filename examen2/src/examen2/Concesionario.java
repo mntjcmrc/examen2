@@ -55,7 +55,7 @@ public class Concesionario  implements java.io.Serializable {
 	
 	@Override
 	public String toString() {
-		return "Codigo concesionario: " + get_codigoConcesionario() + "\n";
+		return "Codigo concesionario: " + get_codigoConcesionario() + "\nModelos\n" + this.mostrarModelos();
 	}
 	
 	// Devuelve una string con los datos de un concesionario
